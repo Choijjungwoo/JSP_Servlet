@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+  <servlet>
+    <servlet-name>LoginServlet</servlet-name>
+    <servlet-class>com.java.servlet.LoginServlet</servlet-class>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServlet</servlet-name>
+    <url-pattern>/login</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>InitServlet</servlet-name>
+    <servlet-class>com.java.servlet.InitServlet</servlet-class>    
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet>
+    <servlet-name>DBCP2InitServlet</servlet-name>
+    <servlet-class>com.java.servlet.DBCP2InitServlet</servlet-class>
+    <init-param>
+      <param-name>driverClassName</param-name>
+      <param-value>oracle.jdbc.driver.OracleDriver</param-value>
+    </init-param>
+    <init-param>
+      <param-name>url</param-name>
+      <param-value>jdbc:oracle:thin:@localhost:1521:XE</param-value>
+    </init-param>
+    <init-param>
+      <param-name>username</param-name>
+      <param-value>java</param-value>
+    </init-param>
+    <init-param>
+      <param-name>password</param-name>
+      <param-value>java</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+</web-app>

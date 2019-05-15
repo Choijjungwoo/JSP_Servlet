@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app>
+	<listener>
+		<listener-class>com.java.listener.TestListener</listener-class>
+	</listener>
+	
+	<context-param>
+		<param-name>name</param-name>
+		<param-value>Kim Hyeongmin</param-value>
+	</context-param>
+</web-app>
