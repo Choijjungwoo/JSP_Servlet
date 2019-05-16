@@ -44,10 +44,10 @@
         <small>List</small>
         &nbsp;&nbsp;&nbsp;&nbsp;
         <button id='newBtn' class="btn btn-primary"
-        	    onclick="javascript:location.href='regist${pageMaker.makeQuery(pageMaker.cri.page)}';">자료등록</button>
+        	    onclick="javascript:location.href='registForm.do${pageMaker.makeQuery(pageMaker.cri.page)}';">자료등록</button>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="list"><i class="fa fa-dashpds"></i>자료실</a></li>
+        <li><a href="list.do"><i class="fa fa-dashpds"></i>자료실</a></li>
         <li class="active">목록</li>
       </ol>
     </section>
@@ -103,7 +103,7 @@
 								<tr>
 									<td>${pds.pno }</td>
 									<td id="pdsTitle" style="text-align:left;">
-									<a href="detail${pageMaker.makeQuery(pageMaker.cri.page) }&pno=${pds.pno }">
+									<a href="detail.do${pageMaker.makeQuery(pageMaker.cri.page) }&pno=${pds.pno }">
 										<span class="col-sm-12 ">${pds.title }</span>
 									</a>
 									</td>
@@ -122,7 +122,7 @@
 									
 								<li><a href="list${pageMaker.makeQuery(1)}">&lt;&lt;</a>						
 								<li>
-									<a href="list
+									<a href="list.do
 									<c:if test="${pageMaker.prev }">
 										${pageMaker.makeQuery(pageMaker.startPage-1) }
 									</c:if>
@@ -132,9 +132,9 @@
 								<c:forEach begin="${pageMaker.startPage }" 
 								           end="${pageMaker.endPage }" var="pageNum">
 								<li <c:out value="${pageMaker.cri.page == pageNum?'class =active':''}"/>>
-									<a href="list${pageMaker.makeQuery(pageNum) }" >${pageNum }</a></li>
+									<a href="list.do${pageMaker.makeQuery(pageNum) }" >${pageNum }</a></li>
 								</c:forEach>
-								<li><a href="list
+								<li><a href="list.do
 								<c:if test="${pageMaker.next }">
 									${pageMaker.makeQuery(pageMaker.endPage+1) }
 								</c:if>
@@ -142,7 +142,7 @@
 									${pageMaker.makeQuery(pageMaker.cri.page) }
 								</c:if>
 								">&gt;</a></li>
-								<li><a href="list${pageMaker.makeQuery(pageMaker.realEndPage) }">&gt;&gt;</a>
+								<li><a href="list.do${pageMaker.makeQuery(pageMaker.realEndPage) }">&gt;&gt;</a>
 								
 							</ul>
 						</div>
@@ -183,7 +183,7 @@
 		
 		/* alert(jobForm.serialize()); */
 		
-		jobForm.attr("action","list").attr("method","get");
+		jobForm.attr("action","list.do").attr("method","get");
 		jobForm.submit();
 	});
 	

@@ -13,7 +13,7 @@
         <small>Regist</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="list"><i class="fa fa-dashboard"></i>자료실</a></li>
+        <li><a href="list.do"><i class="fa fa-dashboard"></i>자료실</a></li>
         <li class="active">등록</li>
       </ol>
     </section>
@@ -27,7 +27,7 @@
 						<h3>글등록</h3>
 					</div><!--end box-header  -->
 					<div class="box-body">
-						<form enctype="multipart/form-data" role="form" method="post" action="regist" name="registForm">
+						<form enctype="multipart/form-data" role="form" method="post" action="regist.do" name="registForm">
 							<div class="form-group">
 								<label for="title">제 목</label> 
 								<input type="text" id="title"

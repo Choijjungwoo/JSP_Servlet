@@ -15,7 +15,7 @@
         <small>Modify</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="list"><i class="fa fa-dashpds"></i>자료실</a></li>
+        <li><a href="list.do"><i class="fa fa-dashpds"></i>자료실</a></li>
         <li class="active">수정</li>
       </ol>
     </section>
@@ -29,7 +29,7 @@
 						<h3>자료 수정</h3>
 					</div><!--end box-header  -->
 					<div class="box-body">
-						<form enctype="multipart/form-data" role="form" method="post" action="modify" name="modifyForm">
+						<form enctype="multipart/form-data" role="form" method="post" action="modify.do" name="modifyForm">
 							
 							<input type='hidden' name='page' value="${param.page}">
 							<input type='hidden' name='perPageNum' value="${param.perPageNum}">
@@ -123,7 +123,7 @@
 		form.submit();
 	});
 	$('#cancelBtn').on('click',function(e){
-		location.href="detail?pno=${pds.pno}&page=${param.page}&perPageNum=${param.perPageNum}"; //검색, 페이징 시에는 반드시 변경
+		location.href="detail.do?pno=${pds.pno}&page=${param.page}&perPageNum=${param.perPageNum}"; //검색, 페이징 시에는 반드시 변경
 	});
 	
 	$("input").on('keydown',function(e){	

@@ -7,6 +7,7 @@
 input#inputFile {
 	display:none;
 }
+div.form-group label{padding:0;}
 </style>
 </head>
 
@@ -56,19 +57,19 @@ input#inputFile {
 						<br />
 
 						<div class="form-group">
-							<label for="id" class="col-sm-3 control-label">아이디</label>
+							<label for="id" class="col-sm-3 control-label"><span style="color:red;font-weight:bold;">*</span>아이디</label>
 
 							<div class="col-sm-9 input-group" style="padding:0 15px;">
 								<input name="id" type="text" class="form-control" id="id"
 									placeholder="13글자 영문자,숫자 조합">
 								<span class="input-group-btn">	
-									<button type="button" class="btn btn-info">중복확인</button>
+									<button type="button" onclick="idCheck_go();" class="btn btn-info">중복확인</button>
 								</span>								
 							</div>
 							
 						</div>
 						<div class="form-group">
-							<label for="pwd" class="col-sm-3 control-label">패스워드</label>
+							<label for="pwd" class="col-sm-3 control-label"><span style="color:red;font-weight:bold;">*</span>패스워드</label>
 
 							<div class="col-sm-9">
 								<input name="pwd" type="password" class="form-control" id="pwd"
@@ -108,6 +109,7 @@ input#inputFile {
 									</div>
 								</div>
 							</div>
+							
 						</div>
 
 					</div>
@@ -132,13 +134,70 @@ input#inputFile {
 				//$('input[name="pictureFile"]').click();
 				return;
 			}
-
+			
+			if($('input[name="id"]').val()==""){
+				alert("아이디는 필수입니다.");
+				return;
+			} 
+				
+			if($('input[name="pwd"]').val()==""){
+				alert("패스워드는 필수입니다.");
+				return;
+			}	
+			
+			
+			if($('input[name="id"]').val()!=checkedID){
+				alert("아이디 중복확인이 필요합니다.");
+				return;
+			}
 			var form = $('form[role="form"]');
 			form.submit();
 		});
 		$('#cancelBtn').on('click', function(e) {
 			location.href = "list.do";
 		});
+		
+		var checkedID="";
+		
+		
+		function idCheck_go(){			
+			var id=$('input[name="id"]').val();
+			//alert(id);
+			
+			if(id==""){
+				alert("아이디를 입력하세요");
+				return;
+			}else{
+				//아이디는 4~12자의 영문자와 숫자로만 입력
+				var reqID=/^[a-zA-Z]{1}[a-zA-Z0-9]{3,11}$/;
+				if(!reqID.test($('input[name="id"]').val())){
+					alert("아이디는 첫글자는 영문자이며, \n4~12자의 영문자와 숫자로만 입력해야 합니다.");
+					$('input[name="id"]').focus();
+					return;
+				}
+			}
+			
+			var data={id:id};
+			$.ajax({
+				url:"<%=request.getContextPath()%>/member/idCheck.do",
+				data:data,
+				type:'post',
+				success:function(result){
+					console.log(result);
+					if(result=="duplicated"){
+						alert("중복된 아이디 입니다.");
+						$('input[name="id"]').focus();
+					}else{
+						alert("사용가능한 아이디입니다.");
+						checkedID=id;
+					}
+				},
+				error:function(error){
+					alert("시스템 장애로 가입이 불가합니다.");
+				}
+			});
+		}
+		
 	</script>
 
 

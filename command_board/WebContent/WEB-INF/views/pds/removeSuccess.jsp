@@ -9,5 +9,5 @@
 	<c:if test="${!empty deleted_pno}">
 	alert("${deleted_pno} 가 삭제되었습니다.");
 	</c:if>
-	location.href="list${pageMaker.makeQuery(param.page)}";
+	location.href="list.do${pageMaker.makeQuery(param.page)}";
 </script>

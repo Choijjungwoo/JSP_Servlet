@@ -7,9 +7,12 @@
 		
 	<excludes>
 		<pattern>/commons/loginForm.do</pattern>
+		
 		<pattern>/upload/picture.do</pattern>
 		<pattern>/member/picture.do</pattern>
+		<pattern>/member/idCheck.do</pattern>
+		
 		<pattern>/replies/**</pattern>
-		<pattern>/attach/get.do</pattern>		
+		<pattern>/attach/get.do</pattern>			
 	</excludes>
 </decorators>

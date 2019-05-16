@@ -13,8 +13,8 @@ public class RegistPdsFormAction implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		return null;
+		String url = "pds/regist";
+		return url;
 	}
 
 }

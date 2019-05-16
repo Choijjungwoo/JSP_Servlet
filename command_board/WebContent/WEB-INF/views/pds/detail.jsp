@@ -16,7 +16,7 @@
         <small>Detail</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashpds"></i> 자료실</a></li>
+        <li><a href="list.do"><i class="fa fa-dashpds"></i> 자료실</a></li>
         <li class="active">상세보기</li>
       </ol>
     </section>
